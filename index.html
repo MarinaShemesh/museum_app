@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="museumApp">
 <head>
   <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
   <title>Rijks museum colours</title>
 </head>
-<body ng-app="museumApp">
+<body>
 <h1>Rijks museum colours</h1>
-<p>
-  
-</p>
+<div ng-controller="museumController as info">
+         <button   ng-click="info.getQuote();">
+                   Click for quote
+          </button>
+
+</div>
 </body>
    <script src="js/angular.min.js"></script>
    <script src="js/app.js"></script>
    <script src="js/controller/museumController.js"></script>
+   <script src="js/service/museumService.js"></script>
 </html>

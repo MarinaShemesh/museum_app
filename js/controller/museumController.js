@@ -1,30 +1,28 @@
+console.log('this is the controller');
+
 angular.module('museumApp')
-             .controller('museumController', museumController);
+ .controller('museumController', museumController);
      
      museumController.$inject = ['museumService', '$scope'];
-                                  
       function museumController (museumService, $scope){
-      
+        
+        const vm = this;
 
-       const vm = this;
-
-                       
-            const onSuccess = function(response){
-             console.log('response.data:', response.data);
-
+           const onSuccess = function(response){
             vm.data = response.data;
-             console.log('vm.data:', vm.data);
+            console.log('vm.data:', vm.data);
             }
 
             const onFailure = function(reason){
             console.log("There was some type of mistake.")
             }
           
-            vm.getMuseumInfo = function() {
+            vm.getQuote = function() {
 
-             museumService.getMuseumInfo()
+             museumService.getQuote()
              .then(onSuccess, onFailure);
                      
             }
 
-      }//end of controller
+    }
+      
