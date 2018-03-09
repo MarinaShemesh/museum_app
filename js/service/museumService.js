@@ -5,12 +5,23 @@
      function museumService($http){
 
       const service = this;
+      
+      const keyNumber = "fpGQTuED";
+      const ps = 9;
+      const p = 2;
+      const museumUrl = "https://www.rijksmuseum.nl/api/en/collection?&key=" 
+                        + keyNumber + "&format=json&ps=" + ps + "&p=" + p;
 
-       service.getQuote = function() {
+       service.getInfo = function() {
           const response = $http({
             method: "GET",
-            url: ("https://www.rijksmuseum.nl/api/nl/collection?key=KK2itac9&format=json&type=schilderij&f.normalized32Colors.hex=%20%23367614")
+            url: (museumUrl)
           });
+
+      service.newData = function(){
+          const p = 3;
+          service.getInfo();
+      }
 
           return response;
  };

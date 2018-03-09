@@ -6,23 +6,15 @@ angular.module('museumApp')
      museumController.$inject = ['museumService', '$scope'];
       function museumController (museumService, $scope){
         
+
         const vm = this;
+             museumService.getInfo()
+             .then(function (museumData){
+             
+             vm.notes = museumData.data;
+             console.log('vm.notes:', vm.notes);
 
-           const onSuccess = function(response){
-            vm.data = response.data;
-            console.log('vm.data:', vm.data);
-            }
+     });
 
-            const onFailure = function(reason){
-            console.log("There was some type of mistake.")
-            }
-          
-            vm.getQuote = function() {
-
-             museumService.getQuote()
-             .then(onSuccess, onFailure);
-                     
-            }
-
-    }
-      
+         
+}//end of controller
