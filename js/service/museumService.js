@@ -8,7 +8,7 @@
       
       const keyNumber = "fpGQTuED";
       const ps = 9;
-      const p = 2;
+      const p = 1;
       const museumUrl = "https://www.rijksmuseum.nl/api/en/collection?&key=" 
                         + keyNumber + "&format=json&ps=" + ps + "&p=" + p;
 

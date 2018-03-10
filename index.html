@@ -5,17 +5,34 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   <title>Rijks museum colours</title>
 </head>
-<body ng-controller="museumController as info">
+<body>
  <div class="container">
-  <div class = "navigation">
-   <h1>Discover the Rijks museum online</h1>
-   <button ng-click="info.doRefresh();">Refresh</button>
+  <nav id="nav-main" role='navigation'>
+  <div id="brand">Discover the Rijks museum</div>
+  <ul>
+    <li><a href="#">Browse</a></li>
+    <li><a href="#">Search</a></li>
+    <li><a href="#">Colours</a></li>
+    <li>
+      <a href="#">About</a>
+      <!--dropdown-->
+      <ul id="dropdown">
+        <li>Phone Number</li>
+        <li>Location</li>
+        <li>Social Media</li>
+      </ul>
+    </li> 
+  </ul>
+</nav>
+
+  <div class = "navigation" ng-controller="refreshController as info">
+     <button ng-click="info.doRefresh();">Refresh</button>
   </div>
-  <div class="content">
+  <div class="content"  ng-controller="museumController as info">
       <div class="box" ng-repeat="item in info.notes.artObjects">
         <h2>{{item.title}}</h2>
         <h3>{{item.principalOrFirstMaker}}</h3>
-         <a href="{{item.links.web}}"> 
+          <a href="{{item.links.web}}"> 
            <img class="picture"
              ng-src="{{item.webImage.url}}">
          </a> 
